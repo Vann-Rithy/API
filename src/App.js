@@ -5,7 +5,7 @@ function App() {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
-    fetch('/members')
+    fetch('https://my-sever-api.vercel.app/members') // Update the fetch URL
       .then(response => response.json())
       .then(data => {
         setMembers(data.members);
