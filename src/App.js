@@ -5,7 +5,7 @@ function App() {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
-    fetch('https://my-sever-api.vercel.app/members') // Update the fetch URL
+    fetch('/members', { mode: 'cors' }) // Use relative URL
       .then(response => response.json())
       .then(data => {
         setMembers(data.members);
