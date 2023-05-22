@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Import the Axios library
 import './App.css'; // Import the CSS file
 
 function App() {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
-    fetch('/members', { mode: 'cors' }) // Use relative URL
-      .then(response => response.json())
-      .then(data => {
-        setMembers(data.members);
+    axios.get('/members')
+      .then(response => {
+        setMembers(response.data.members);
       })
       .catch(error => {
         console.error('Error:', error);
